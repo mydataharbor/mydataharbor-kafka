@@ -27,5 +27,5 @@ public class SimpleKafkaConfig extends RateLimitConfig {
   private Properties kafkaConfig;
 
   @MyDataHarborMarker(title = "是否同步发送")
-  private boolean sync = false;
+  private boolean sync = true;
 }

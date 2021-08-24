@@ -15,20 +15,8 @@
 
 ```json
 {
-    "speed": 100,
-    "url": "",
-    "username": "",
-    "password": "",
-    "querySql": "",
-    "maxPollRecords": 1,
-    "model": "INCREMENT",
-    "countSql": "",
-    "rollingFieldName": "updated_at",
-    "startTime": "2021-02-22 15:47:00",
-    "timeFormat": "yyyy-MM-dd HH:mm:ss",
-    "primaryKeys": [
-      "id"
-    ]
+    "topics": [],
+    "kafkaConfig": {}
   }
 ```
 
@@ -36,10 +24,9 @@
 
 ```json
 {
-    "url": "",
-    "username": "",
-    "password": "",
-    "defaultTableName": ""
+    "topic": "",
+    "kafkaConfig": {},
+    "sync": true
   }
 ```
 

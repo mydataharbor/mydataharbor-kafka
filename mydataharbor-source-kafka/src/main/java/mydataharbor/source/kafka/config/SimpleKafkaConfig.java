@@ -223,9 +223,7 @@ public class SimpleKafkaConfig extends RateLimitConfig {
 
   public SimpleKafkaConfig(){
     super();
-
   }
-
 
   @MyDataHarborMarker(title = "监听的topic")
   private List<String> topics;

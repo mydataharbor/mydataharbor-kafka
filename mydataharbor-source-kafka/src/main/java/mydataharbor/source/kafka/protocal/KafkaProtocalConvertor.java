@@ -3,6 +3,7 @@ package mydataharbor.source.kafka.protocal;
 import mydataharbor.IProtocalDataConvertor;
 import mydataharbor.classutil.classresolver.MyDataHarborMarker;
 import mydataharbor.exception.ResetException;
+import mydataharbor.kafka.common.source.KafkaProtocalData;
 import mydataharbor.setting.BaseSettingContext;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.common.header.Header;

@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.mydataharbor</groupId>
     <artifactId>mydataharbor-plugin-plugins</artifactId>
-    <version>1.0.3-RELEASE</version>
+    <version>1.0.4</version>
   </parent>
   <artifactId>mydataharbor-kafka-plugin</artifactId>
   <packaging>pom</packaging>

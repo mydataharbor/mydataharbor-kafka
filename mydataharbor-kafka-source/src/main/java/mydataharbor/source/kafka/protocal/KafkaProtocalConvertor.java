@@ -1,6 +1,6 @@
 package mydataharbor.source.kafka.protocal;
 
-import mydataharbor.IProtocalDataConvertor;
+import mydataharbor.IProtocolDataConverter;
 import mydataharbor.classutil.classresolver.MyDataHarborMarker;
 import mydataharbor.exception.ResetException;
 import mydataharbor.kafka.common.source.KafkaProtocalData;
@@ -12,7 +12,7 @@ import org.apache.kafka.common.header.Header;
  * Created by xulang on 2021/8/22.
  */
 @MyDataHarborMarker(title = "kafka数据源默认协议数据转换器")
-public class KafkaProtocalConvertor implements IProtocalDataConvertor<ConsumerRecord<String, String>, KafkaProtocalData, BaseSettingContext> {
+public class KafkaProtocalConvertor implements IProtocolDataConverter<ConsumerRecord<String, String>, KafkaProtocalData, BaseSettingContext> {
 
   @Override
   public KafkaProtocalData convert(ConsumerRecord<String, String> record, BaseSettingContext settingContext) throws ResetException {

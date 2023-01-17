@@ -2,7 +2,7 @@ package mydataharbor.kafka.common.source;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import mydataharbor.IProtocalData;
+import mydataharbor.IProtocolData;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +11,7 @@ import java.util.Map;
  * Created by xulang on 2021/8/22.
  */
 @Data
-public class KafkaProtocalData implements IProtocalData {
+public class KafkaProtocalData implements IProtocolData {
 
   private String topic;
 
@@ -22,7 +22,7 @@ public class KafkaProtocalData implements IProtocalData {
   private Map<String, byte[]> header = new HashMap<>();
 
   @Override
-  public String protocalName() {
+  public String protocolName() {
     return "kafka-protocal-data";
   }
 

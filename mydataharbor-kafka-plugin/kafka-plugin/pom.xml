@@ -5,7 +5,7 @@
   <parent>
     <artifactId>mydataharbor-kafka-plugin</artifactId>
     <groupId>com.mydataharbor</groupId>
-    <version>1.1.0</version>
+    <version>${revision}</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
@@ -22,19 +22,17 @@
   </description>
 
   <dependencies>
-    <dependency>
-      <groupId>com.mydataharbor</groupId>
-      <artifactId>mydataharbor-kafka-common</artifactId>
-      <version>1.1.0</version>
-    </dependency>
 
     <dependency>
       <groupId>com.mydataharbor</groupId>
-      <artifactId>mydataharbor-sink-kafka</artifactId>
-      <version>1.1.0</version>
-      <scope>test</scope>
+      <artifactId>mydataharbor-kafka-sink</artifactId>
+      <version>${project.version}</version>
     </dependency>
-
+    <dependency>
+      <groupId>com.mydataharbor</groupId>
+      <artifactId>mydataharbor-kafka-source</artifactId>
+      <version>${project.version}</version>
+    </dependency>
   </dependencies>
 
 </project>

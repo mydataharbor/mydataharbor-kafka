@@ -22,7 +22,7 @@
   	<module>kafka-0.x-plugin</module>
   	<module>kafka-1.x-plugin</module>
   	<module>kafka-plugin</module>
-      <module>kafka-3.x-plugin</module>
+    <module>kafka-3.x-plugin</module>
   </modules>
 
   <dependencies>

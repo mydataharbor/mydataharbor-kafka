@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 /**
@@ -50,24 +51,21 @@ public class KafkaSink implements IDataSink<KafkaSinkReq, BaseSettingContext> {
         kafkaRecord.headers().add(key, record.getHeader().get(key).getBytes());
       }
     }
-    Object sinkReturn;
     try {
       Future<RecordMetadata> recordMetadataFuture = kafkaProducer.send(kafkaRecord);
-      sinkReturn = recordMetadataFuture;
       if (simpleKafkaConfig.isSync()) {
-        RecordMetadata recordMetadata = recordMetadataFuture.get();
-        sinkReturn = recordMetadata;
+        recordMetadataFuture.get();
       }
     } catch (Exception e) {
       log.error("发送消息失败！", e);
       return WriterResult.builder().success(false).commit(false).msg(e.getMessage()).build();
     }
-    return WriterResult.builder().success(true).commit(true).msg("ok").writeReturn(sinkReturn).build();
+    return WriterResult.builder().success(true).commit(true).msg("ok").build();
   }
 
   @Override
   public WriterResult write(List<KafkaSinkReq> records, BaseSettingContext settingContext) throws ResetException {
-    List<Object> sinkReturnList = new ArrayList<>();
+    List<Future<RecordMetadata>> futureList = new ArrayList<>();
     for (KafkaSinkReq record : records) {
       ProducerRecord<String, String> kafkaRecord = new ProducerRecord<>(simpleKafkaConfig.getTopic(), record.getKey(), record.getValue());
       if (record.getHeader() != null) {
@@ -75,21 +73,24 @@ public class KafkaSink implements IDataSink<KafkaSinkReq, BaseSettingContext> {
           kafkaRecord.headers().add(key, record.getHeader().get(key).getBytes());
         }
       }
-      Object sinkReturn;
       try {
         Future<RecordMetadata> recordMetadataFuture = kafkaProducer.send(kafkaRecord);
-        sinkReturn = recordMetadataFuture;
-        if (simpleKafkaConfig.isSync()) {
-          RecordMetadata recordMetadata = recordMetadataFuture.get();
-          sinkReturn = recordMetadata;
-        }
-        sinkReturnList.add(sinkReturn);
+        futureList.add(recordMetadataFuture);
       } catch (Exception e) {
         log.error("发送消息失败！", e);
         return WriterResult.builder().success(false).commit(false).msg(e.getMessage()).build();
       }
     }
-    return WriterResult.builder().success(true).commit(true).msg("ok").writeReturn(sinkReturnList).build();
+    if (simpleKafkaConfig.isSync()) {
+      for (Future<RecordMetadata> recordMetadataFuture : futureList) {
+        try {
+          recordMetadataFuture.get();
+        } catch (Exception e) {
+          return WriterResult.builder().success(false).commit(false).msg(e.getMessage()).build();
+        }
+      }
+    }
+    return WriterResult.builder().success(true).commit(true).msg("ok").build();
   }
 
   @Override

@@ -27,10 +27,18 @@
       <groupId>com.mydataharbor</groupId>
       <artifactId>mydataharbor-kafka-sink</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.mydataharbor</groupId>
       <artifactId>mydataharbor-kafka-source</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.mydataharbor</groupId>
+      <artifactId>mydataharbor-kafka-common</artifactId>
       <version>${project.version}</version>
     </dependency>
   </dependencies>

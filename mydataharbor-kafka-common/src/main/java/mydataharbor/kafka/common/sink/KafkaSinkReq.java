@@ -9,6 +9,13 @@ import java.util.Map;
  */
 @Data
 public class KafkaSinkReq {
+  /**
+   * topic，可选，如果不指定则使用sink配置中的topic
+   */
+  private String topic;
+  /**
+   * 可选，用于数据partition路由
+   */
   private String key;
 
   private String value;

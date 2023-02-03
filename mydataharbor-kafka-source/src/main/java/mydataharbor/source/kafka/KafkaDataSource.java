@@ -234,6 +234,7 @@ public class KafkaDataSource extends AbstractRateLimitDataSource<ConsumerRecord<
     super(simpleKafkaConfig);
     Properties kafkaConfig = new Properties();
     kafkaConfig.put("bootstrap.servers", simpleKafkaConfig.getBootstrapServers());
+    kafkaConfig.put("group.id",simpleKafkaConfig.getGroupId());
     if (simpleKafkaConfig.getKafkaConfig() != null)
       kafkaConfig.putAll(simpleKafkaConfig.getKafkaConfig());
     kafkaConfig.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
@@ -251,7 +252,7 @@ public class KafkaDataSource extends AbstractRateLimitDataSource<ConsumerRecord<
   @Override
   public Collection<ConsumerRecord<String, String>> doPoll(BaseSettingContext settingContext) throws TheEndException {
     //这里为了限流，将ConsumerRecords 转为list
-    ConsumerRecords<String, String> consumerRecords = kafkaConsumer.poll(Duration.ofMillis(1000));
+    ConsumerRecords<String, String> consumerRecords = kafkaConsumer.poll(1000);
     List<ConsumerRecord<String, String>> records = new ArrayList<>();
     for (ConsumerRecord<String, String> consumerRecord : consumerRecords) {
       records.add(consumerRecord);

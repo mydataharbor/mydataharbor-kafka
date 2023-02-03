@@ -225,6 +225,9 @@ public class KafkaDataSourceConfig extends RateLimitConfig {
     super();
   }
 
+  @MyDataHarborMarker(title = "消费groupId")
+  private String groupId;
+
   @MyDataHarborMarker(title = "监听的topic")
   private List<String> topics;
 

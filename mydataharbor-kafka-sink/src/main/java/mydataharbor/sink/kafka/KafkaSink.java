@@ -45,7 +45,7 @@ public class KafkaSink implements IDataSink<KafkaSinkReq, BaseSettingContext> {
 
   @Override
   public WriterResult write(KafkaSinkReq record, BaseSettingContext settingContext) throws ResetException {
-    ProducerRecord<String, String> kafkaRecord = new ProducerRecord<>(simpleKafkaConfig.getTopic(), record.getKey(), record.getValue());
+    ProducerRecord<String, String> kafkaRecord = new ProducerRecord<>(record.getTopic()==null?simpleKafkaConfig.getTopic():record.getTopic(), record.getKey(), record.getValue());
     if (record.getHeader() != null) {
       for (String key : record.getHeader().keySet()) {
         kafkaRecord.headers().add(key, record.getHeader().get(key).getBytes());

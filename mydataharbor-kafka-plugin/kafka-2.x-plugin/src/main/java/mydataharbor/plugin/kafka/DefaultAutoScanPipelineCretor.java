@@ -13,7 +13,7 @@ import org.pf4j.ExtensionPoint;
  * Created by xulang on 2021/8/17.
  */
 @Extension
-public class DefaultAutoScanPiplineCretor extends AbstractAutoScanPipelineCreator<Map<String, Object>, BaseSettingContext> implements ExtensionPoint {
+public class DefaultAutoScanPipelineCretor extends AbstractAutoScanPipelineCreator<Map<String, Object>, BaseSettingContext> implements ExtensionPoint {
   @Override
   public String scanPackage() {
     return "mydataharbor.plugin.kafka";

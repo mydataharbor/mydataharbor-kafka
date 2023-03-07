@@ -1,4 +1,4 @@
-package mydataharbor.source.kafka.protocal;
+package mydataharbor.plugin.kafka.source.protocal;
 
 import mydataharbor.IProtocolDataConverter;
 import mydataharbor.classutil.classresolver.MyDataHarborMarker;

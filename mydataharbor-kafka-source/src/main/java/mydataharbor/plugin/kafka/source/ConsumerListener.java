@@ -202,7 +202,7 @@
  *    limitations under the License.
  */
 
-package mydataharbor.source.kafka;
+package mydataharbor.plugin.kafka.source;
 
 import org.apache.kafka.clients.consumer.ConsumerRebalanceListener;
 import org.apache.kafka.common.TopicPartition;

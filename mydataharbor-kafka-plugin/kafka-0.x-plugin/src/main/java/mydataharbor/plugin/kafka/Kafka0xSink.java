@@ -1,7 +1,7 @@
 package mydataharbor.plugin.kafka;
 
 import mydataharbor.kafka.common.sink.KafkaSinkConfig;
-import mydataharbor.sink.kafka.KafkaSink;
+import mydataharbor.plugin.kafka.sink.KafkaSink;
 
 /**
  * Created by xulang on 2022/1/23.

@@ -4,7 +4,6 @@ import lombok.Data;
 import mydataharbor.IDataConverter;
 import mydataharbor.IDataPipeline;
 import mydataharbor.IDataPipelineCreator;
-import mydataharbor.IProtocolData;
 import mydataharbor.classutil.classresolver.MyDataHarborMarker;
 import mydataharbor.exception.ResetException;
 import mydataharbor.kafka.common.sink.KafkaSinkConfig;
@@ -14,7 +13,7 @@ import mydataharbor.kafka.common.source.KafkaProtocalData;
 import mydataharbor.pipeline.CommonDataPipeline;
 import mydataharbor.plugin.base.util.JsonUtil;
 import mydataharbor.setting.BaseSettingContext;
-import mydataharbor.source.kafka.protocal.KafkaProtocalConvertor;
+import mydataharbor.plugin.kafka.source.protocal.KafkaProtocalConvertor;
 
 import org.pf4j.Extension;
 import org.pf4j.ExtensionPoint;

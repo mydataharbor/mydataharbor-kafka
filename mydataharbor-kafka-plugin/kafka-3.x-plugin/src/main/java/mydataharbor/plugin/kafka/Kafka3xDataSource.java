@@ -1,7 +1,7 @@
 package mydataharbor.plugin.kafka;
 
 import mydataharbor.kafka.common.source.KafkaDataSourceConfig;
-import mydataharbor.source.kafka.KafkaDataSource;
+import mydataharbor.plugin.kafka.source.KafkaDataSource;
 
 /**
  * Created by xulang on 2022/1/23.

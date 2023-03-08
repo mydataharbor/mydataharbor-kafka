@@ -202,7 +202,7 @@
  * limitations under the License.
  */
 
-package mydataharbor.source.kafka;
+package mydataharbor.plugin.kafka.source;
 
 import lombok.extern.slf4j.Slf4j;
 import mydataharbor.datasource.AbstractRateLimitDataSource;
@@ -216,7 +216,6 @@ import org.apache.kafka.clients.consumer.OffsetAndMetadata;
 import org.apache.kafka.common.TopicPartition;
 
 import java.io.IOException;
-import java.time.Duration;
 import java.util.*;
 
 /**

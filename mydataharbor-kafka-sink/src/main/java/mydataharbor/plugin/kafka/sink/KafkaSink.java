@@ -1,4 +1,4 @@
-package mydataharbor.sink.kafka;
+package mydataharbor.plugin.kafka.sink;
 
 import lombok.extern.slf4j.Slf4j;
 import mydataharbor.IDataSink;
